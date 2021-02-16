@@ -83,17 +83,17 @@ def crime_count(row, crimes_coord):
     return count
 
 def parse_parcel(row):
-   # try:
+    #try:
         if '-' in row['parcel_id']:
             return int(re.split('-',row['parcel_id'])[0])
         if '.' in row['parcel_id']:
             return int(re.split('\.',row['parcel_id'])[0])
         else:
             return 0
-#     except:
-#         breakpoint()
+    #except:
+     #    breakpoint()
 
-def haversine_np(lon1, lat1, lon2, lat2):
+def crime_count(row, coordinates):
     """
     Calculate the great circle distance between two points
     on the earth (specified in decimal degrees)
@@ -101,13 +101,26 @@ def haversine_np(lon1, lat1, lon2, lat2):
     All args must be of equal length.    
 
     """
-    lon1, lat1, lon2, lat2 = map(np.radians, [lon1, lat1, lon2, lat2])
+    count = 0
+    
+    for crime in coordinates:
+        lon1 = row['lon']
+        lat1 = row['lat']
+        
+        lon2 = crime[0]
+        lat2 = crime[1]
+    
+        lon1, lat1, lon2, lat2 = map(np.radians, [lon1, lat1, lon2, lat2])
 
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
 
-    a = np.sin(dlat/2.0)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2.0)**2
+        a = np.sin(dlat/2.0)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2.0)**2
 
-    c = 2 * np.arcsin(np.sqrt(a))
-    km = 6367 * c
-    return km
+        c = 2 * np.arcsin(np.sqrt(a))
+        km = 6367 * c
+        
+        if km < 5:
+            count+=1
+        
+    return count
