@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from geopy.distance import distance
-
+import re
 
 
 
@@ -56,6 +56,13 @@ def extract_long_crime(x):
         breakpoint()
         
         
+def coord_bligth(row):
+    if np.isnan(row['lat']) or np.isnan(row['lon']):
+        return np.nan
+    else:        
+        return row['lat'],row['lon']
+    
+        
 def crime_count(row, crimes_coord):
     """
     Calculate a number of crimes within 
@@ -74,3 +81,14 @@ def crime_count(row, crimes_coord):
         if dist < 600:
             count+=1                 
     return count
+
+def parse_parcel(row):
+   # try:
+        if '-' in row['parcel_id']:
+            return int(re.split('-',row['parcel_id'])[0])
+        if '.' in row['parcel_id']:
+            return int(re.split('\.',row['parcel_id'])[0])
+        else:
+            return 0
+#     except:
+#         breakpoint()
