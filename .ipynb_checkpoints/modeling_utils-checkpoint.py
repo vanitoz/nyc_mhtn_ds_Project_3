@@ -15,6 +15,7 @@ from imblearn.over_sampling import SMOTE, ADASYN
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
 
+from sklearn import metrics
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import plot_confusion_matrix, recall_score, precision_score, classification_report
 
@@ -62,59 +63,117 @@ def to_dummies(df, features):
     
     return df
 
-
-def log_reg (X , y, roc = False, matrix = True, report =True):
+def log_reg (X, y, solver='liblinear'):
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 42, test_size = 0.25)
-    # Initial Model
+    logreg = LogisticRegression(fit_intercept=False, solver= solver)
+    logreg.fit(X_train, y_train)
+
+    # predictions
+    y_pred_test = logreg.predict(X_test)
+    y_pred_train = logreg.predict(X_train)
+
+    # Calculate Accuracy Score 
+    print('Accuracy on Train Set:')
+    print(metrics.accuracy_score(y_train, y_pred_train))
+
+    print('\n Accuracy on Test Set: ')
+    print(metrics.accuracy_score(y_test, y_pred_test))
+
+    print("\n F1 Score for Test Set")
+    print(metrics.f1_score(y_test, y_pred_test))
+
+    # IMPORTANT: first argument is true values, second argument is predicted values
+    print("\n Confusion Matrix for Test Set")
+    print(metrics.confusion_matrix(y_test, y_pred_test))
+
+    print( "\n Precision Score for Test Set")
+    print(metrics.precision_score(y_test, y_pred_test))
+
+    print("\n Recall Score for Test Set")
+    print(metrics.recall_score(y_test, y_pred_test))
+
+    return logreg
+
+
+def log_reg_smote (X, y, solver='liblinear'):
+    
+    
+    # Previous original class distribution
+    print('Original class distribution')
+    print(y.value_counts()) 
+
+    # Fit SMOTE to training data
+    X_resampled, y_resampled = SMOTE().fit_resample(X, y) 
+
+    # Preview synthetic sample class distribution
+    print('\n Synthetic sample class distribution' )
+    print(pd.Series(y_resampled).value_counts()) 
+    
+    
+    # Split resampled data into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, random_state=0)
+
     logreg = LogisticRegression(fit_intercept=False, solver='liblinear')
     logreg.fit(X_train, y_train)
 
-    # Probability scores for test set
-    y_score = logreg.fit(X_train, y_train).decision_function(X_test)
-    # False positive rate and true positive rate
-    fpr, tpr, thresholds = roc_curve(y_test, y_score)
+    # predictions
+    y_pred_test = logreg.predict(X_test)
+    y_pred_train = logreg.predict(X_train)
 
-    # Test set predictions
-    pred = logreg.predict(X_test)
-    
-    # Seaborn's beautiful styling
-    sns.set_style('darkgrid', {'axes.facecolor': '0.9'})
+    # Calculate Accuracy Score 
+    print('Accuracy on Train Set:')
+    print(metrics.accuracy_score(y_train, y_pred_train))
 
-    # Print AUC
-    print('AUC: {}'.format(auc(fpr, tpr)))
+    print('\n Accuracy on Test Set: ')
+    print(metrics.accuracy_score(y_test, y_pred_test))
 
-    # Plot the ROC curve
-    if roc :
-        plt.figure(figsize=(10, 8))
-        lw = 2
-        plt.plot(fpr, tpr, color='darkorange',
-                 lw=lw, label='ROC curve')
-        plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.yticks([i/20.0 for i in range(21)])
-        plt.xticks([i/20.0 for i in range(21)])
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver operating characteristic (ROC) Curve')
-        plt.legend(loc='lower right')
-        plt.show()
-        
-    if matrix:
-        print ('\n\n Cofusion Matrix \n\n')
-        # Plot confusion matrix of the test set
-        plot_confusion_matrix(logreg, X_test, y_test,
-                              display_labels=["Non-Compliant", "Compliant"],
-                              values_format=".5g")
-        plt.grid(False) # removes the annoying grid lines from plot
-        plt.show()
+    print("\n F1 Score for Test Set")
+    print(metrics.f1_score(y_test, y_pred_test))
+
+    # IMPORTANT: first argument is true values, second argument is predicted values
+    print("\n Confusion Matrix for Test Set")
+    print(metrics.confusion_matrix(y_test, y_pred_test))
+
+    print( "\n Precision Score for Test Set")
+    print(metrics.precision_score(y_test, y_pred_test))
+
+    print("\n Recall Score for Test Set")
+    print(metrics.recall_score(y_test, y_pred_test))
+
+    return logreg
     
-    if report:
-        
-        print('\nGeneral Report \n')
-        print(classification_report(y_test,pred))
     
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 42, test_size = 0.25)
+    logreg = LogisticRegression(fit_intercept=False, solver= solver)
+    logreg.fit(X_train, y_train)
+
+    # predictions
+    y_pred_test = logreg.predict(X_test)
+    y_pred_train = logreg.predict(X_train)
+
+    # Calculate Accuracy Score 
+    print('Accuracy on Train Set:')
+    print(metrics.accuracy_score(y_train, y_pred_train))
+
+    print('\n Accuracy on Test Set: ')
+    print(metrics.accuracy_score(y_test, y_pred_test))
+
+    print("\n F1 Score for Test Set")
+    print(metrics.f1_score(y_test, y_pred_test))
+
+    # IMPORTANT: first argument is true values, second argument is predicted values
+    print("\n Confusion Matrix for Test Set")
+    print(metrics.confusion_matrix(y_test, y_pred_test))
+
+    print( "\n Precision Score for Test Set")
+    print(metrics.precision_score(y_test, y_pred_test))
+
+    print("\n Recall Score for Test Set")
+    print(metrics.recall_score(y_test, y_pred_test))
+
+    return logreg
+
 
 
 
@@ -189,5 +248,7 @@ def decision_tree_smote(X, y, max_depth, future_importance = True, confusion_mtr
     if report:
         print('\nGeneral Report \n')
         print(classification_report(y_test,pred))
-
-    return print("Testing Accuracy for Decision Tree Classifier: {:.4}%".format(accuracy_score(y_test, pred) * 100))
+    
+    print("Testing Accuracy for Decision Tree Classifier: {:.4}%".format(accuracy_score(y_test, pred) * 100))
+    
+    return tree_clf
