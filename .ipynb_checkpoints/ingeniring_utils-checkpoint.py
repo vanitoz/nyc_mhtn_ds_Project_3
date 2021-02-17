@@ -56,14 +56,14 @@ def extract_long_crime(x):
         breakpoint()
         
         
-def coord_bligth(row):
+def crime_coord(row):
     if np.isnan(row['lat']) or np.isnan(row['lon']):
         return np.nan
     else:        
         return row['lat'],row['lon']
     
         
-def crime_count(row, crimes_coord):
+def crime_counts(row, crimes_coord):
     """
     Calculate a number of crimes within 
     500 meters from place with blight ticket violetion
@@ -73,14 +73,15 @@ def crime_count(row, crimes_coord):
             crimes_coord : Series/array with crime coordinates (2-tuples)
     
     returns number of crimes
-    """
-    
+    """ 
     count = 0
     for crime in crimes_coord:
         dist = distance(row['coordinates'], crime).m
-        if dist < 600:
-            count+=1                 
+        if dist < 1000:
+            count+=1
     return count
+
+
 
 def parse_parcel(row):
     #try:
