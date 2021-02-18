@@ -55,7 +55,7 @@ Which includes all following pmpotrtant steps:
 4. Test different models with different hyper perameters and use cross validation
 5. Implement the different models to preform on the data set and categorize the values
 
-!(images/CRISP-DM_Process_Diagram.png)
+![Blight](images/CRISP-DM_Process_Diagram.png)
 
 
 
