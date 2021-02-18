@@ -84,9 +84,6 @@ def log_reg (X, y, solver='liblinear'):
     print('\n Accuracy on Test Set: ')
     print(metrics.accuracy_score(y_test, y_pred_test))
 
-    print("\n F1 Score for Test Set")
-    print(metrics.f1_score(y_test, y_pred_test))
-
     # IMPORTANT: first argument is true values, second argument is predicted values
     print("\n Confusion Matrix for Test Set")
     print(metrics.confusion_matrix(y_test, y_pred_test))
@@ -114,6 +111,7 @@ def log_reg_smote (X, y, solver='liblinear'):
     print('\n Synthetic sample class distribution' )
     print(pd.Series(y_resampled).value_counts()) 
     
+    print(40*'-')
     
     logreg = LogisticRegression(fit_intercept=False, solver='liblinear')
     logreg.fit(X_resampled, y_resampled)
@@ -128,9 +126,6 @@ def log_reg_smote (X, y, solver='liblinear'):
 
     print('\n Accuracy on Test Set:')
     print(metrics.accuracy_score(y_test, y_pred_test))
-
-    print("\n F1 Score for Test Set")
-    print(metrics.f1_score(y_test, y_pred_test))
 
     # IMPORTANT: first argument is true values, second argument is predicted values
     print("\n Confusion Matrix for Test Set\n")
@@ -196,8 +191,7 @@ def decision_tree_smote(X, y, max_depth = None, min_samples_leaf = 1, min_sample
     print('\n Accuracy on Test Set: ')
     print(metrics.accuracy_score(y_test, y_pred_test))
 
-    print("\n F1 Score for Test Set")
-    print(metrics.f1_score(y_test, y_pred_test))
+    print(4*'-')
 
     # IMPORTANT: first argument is true values, second argument is predicted values
     print("\n Confusion Matrix for Test Set")
@@ -221,6 +215,8 @@ def plot_feature_importances(model, X):
     plt.ylabel('Feature')
     plt.show()
     
+    
+    
 def randome_forest(X, y, max_depth = None):
     
     # Instantiate and fit a RandomForestClassifier, split data and fit model
@@ -243,12 +239,67 @@ def randome_forest(X, y, max_depth = None):
     print("\n Confusion Matrix for Test Set")
     print(metrics.confusion_matrix(y_test, y_pred_test))
 
-    print("\n General Repor \n")
+    print("\n General Repor :\n")
     print(classification_report(y_test, y_pred_test))
     
     return forest
 
+
+def AdaBoost(X, y):
     
+    # Split the data into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+    
+    adaboost_clf = AdaBoostClassifier(random_state=42)
+    adaboost_clf.fit(X_train, y_train)
+    
+    # AdaBoost model predictions
+    adaboost_train_preds = adaboost_clf.predict(X_train)
+    adaboost_test_preds = adaboost_clf.predict(X_test)
+    
+    adaboost_confusion_matrix = confusion_matrix(y_test, adaboost_test_preds)
+    
+    print('Accuracy on Train Set:')
+    print(metrics.accuracy_score(y_train, adaboost_train_preds))
+    
+    print('\n Accuracy on Test Set: ')
+    print(metrics.accuracy_score(y_test, adaboost_test_preds))
+    
+    print("\n Confusion Matrix for Test Set")
+    print(adaboost_confusion_matrix)
+    
+    print("\n General Repor :\n")
+    print(classification_report(y_test, adaboost_test_preds))
+    
+    return adaboost_clf
+
+def gbt(X, y):
+    
+    # Split the data into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+    
+    gbt_clf = GradientBoostingClassifier(random_state=42)
+    gbt_clf.fit(X_train, y_train).fit(X_train, y_train)
+    
+    # AdaBoost model predictions
+    gbt_clf_train_preds = gbt_clf.predict(X_train)
+    gbt_clf_test_preds = gbt_clf.predict(X_test)
+    
+    gbt_confusion_matrix = confusion_matrix(y_test, gbt_clf_test_preds)
+    
+    print('Accuracy on Train Set:')
+    print(metrics.accuracy_score(y_train, gbt_clf_train_preds))
+    
+    print('\n Accuracy on Test Set: ')
+    print(metrics.accuracy_score(y_test, gbt_clf_test_preds))
+    
+    print("\n Confusion Matrix for Test Set")
+    print(gbt_confusion_matrix)
+    
+    print("\n General Repor :\n")
+    print(classification_report(y_test, gbt_clf_test_preds))
+    
+    return adaboost_clf
     
     
     
