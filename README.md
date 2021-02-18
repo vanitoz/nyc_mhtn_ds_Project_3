@@ -46,6 +46,7 @@ Which includes all following pmpotrtant steps:
 7. Present your solution. 
 8. Launch, monitor, and maintain your system.
 
+![Blight](images/CRISP-DM_Process_Diagram.png =250x250)
 
 
 ## Methodology
@@ -55,7 +56,6 @@ Which includes all following pmpotrtant steps:
 4. Test different models with different hyper perameters and use cross validation
 5. Implement the different models to preform on the data set and categorize the values
 
-![Blight](images/CRISP-DM_Process_Diagram.png)
 
 
 
