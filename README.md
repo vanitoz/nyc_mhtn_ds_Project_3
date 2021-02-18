@@ -32,9 +32,22 @@ into that, be they categorical or numerical.
     ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
     └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
     
-    
+## Approach
 
-    
+General Approach for this problem was based on Cross Industry Standard Process for Data Mining (CRISP-DM)
+Which includes all following pmpotrtant steps: 
+
+1. Look at the big picture. 
+2. Get the data. 
+3. Discover and visualize the data to gain insights. 
+4. Prepare the data for Machine Learning algorithms. 
+5. Select a model and train it. 
+6. Fine-tune your model. 
+7. Present your solution. 
+8. Launch, monitor, and maintain your system.
+
+
+
 ## Methodology
 1. Merge the data along usefull columns and synthesize a more useable dataset
 2. Perform EDA with statistical analysis to determine statistically significant features as well as dropping nan values and useless features.
