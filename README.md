@@ -46,7 +46,7 @@ Which includes all following pmpotrtant steps:
 7. Present your solution. 
 8. Launch, monitor, and maintain your system.
 
-![Blight](images/719px-CRISP-DM_Process_Diagram.png)
+![Blight](images/479px-CRISP-DM_Process_Diagram.png)
 
 ## Methodology
 1. Merge the data along usefull columns and synthesize a more useable dataset
