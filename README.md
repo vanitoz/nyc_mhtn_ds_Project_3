@@ -1,8 +1,8 @@
 # Understanding and Predicting Blight Fine
 
-## Overview
 ![Blight](https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2014/07/lafayette.jpg?itok=0My_zKs4)
 
+## Overview
 
     For this project we wanted to better predict when someone in Detroit would not
     only allow their property to fall to blight but also not be compliant with the 
