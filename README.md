@@ -23,12 +23,12 @@ into that, be they categorical or numerical.
 
 ## Repository Structure
 
-    ├── README.md                    # The top-level README for reviewers of this project\n",
-    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal\n",
-    ├── modules                      # py files with functions for ingeniring and modeling\n",
-    ├── images                       # Both sourced externally and generated from Code\n",       
-    ├── modeling.ipynb               # Notebook that gpes pver out modling process\n",                                        
-    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling\n",
+    ├── README.md                    # The top-level README for reviewers of this project",
+    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal",
+    ├── modules                      # py files with functions for ingeniring and modeling",
+    ├── images                       # Both sourced externally and generated from Code",       
+    ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
+    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
     
     
 
