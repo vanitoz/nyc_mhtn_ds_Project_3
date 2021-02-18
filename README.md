@@ -8,7 +8,9 @@ Blight violations are issued by the city to individuals who allow their properti
 Blight has become a serious problem in Detroit. Every year the city issues millions of dollars in fines to violators 
 and every year many of those tickets go unpaid. Following up and enforcing these fines can become extremely costly as well
 and as such they want to use predictive analytics to increase ticket compliance.
-    
+
+
+## Buisness Problem
 For this project we wanted to better predict when someone in Detroit would not
 only allow their property to fall to blight but also not be compliant with the 
 fines issued afterwards.
