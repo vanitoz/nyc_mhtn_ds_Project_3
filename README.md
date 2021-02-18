@@ -3,7 +3,12 @@
 ![Blight](https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2014/07/lafayette.jpg?itok=0My_zKs4)
 
 ## Overview
-
+    
+    Blight violations are issued by the city to individuals who allow their properties to remain in a deteriorated condition. 
+    Blight has become a serious problem in Detroit. Every year the city issues millions of dollars in fines to violators 
+    and every year many of those tickets go unpaid. Following up and enforcing these fines can become extremely costly as well
+    and as such they want to use predictive analytics to increase ticket compliance.
+    
     For this project we wanted to better predict when someone in Detroit would not
     only allow their property to fall to blight but also not be compliant with the 
     fines issued afterwards.
@@ -11,13 +16,6 @@
     We based this project on a data challange from the Michigan Data Science Team (MDST) 
     and the MIchigan Student Symposium for Interdisciplinary Statistical Sciences (MSSISS). 
     They partnered with the City Detroit to better understand this problem.
-
-    Blight, allowing your property to fall into and remain in ruin,  has become a serious 
-    problem in Detroit. Every year the city issues millions of dollars in fines to violators 
-    and every year many of those tickets go unpaid. Following up and enforcing these fines 
-    can become extremely costly as well and as such they want to use predictive analytics to 
-    increase ticket compliance.
-
 
     To answer this question we first needed to understand when and why a resident would not 
     comply with a blight violation. This is the task, understanding the factors that play 
