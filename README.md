@@ -85,24 +85,9 @@ Following graph shows Feature Importance generated with Random Forest Model.
 <img src="images/Features_Importance.png" alt="drawing" width="800" hight="900"/>
 
 As we can tell 'judgment amount', 'crime_count' and 'desposition' end up to be most importent features.
-
-   
+The next step was to try models based on Boosting Algorithms. Ada Boost didn't show beyter results but Gradient Boostin Clasifier gave the best scores. 
+After perfoming Grid Search we were able to get best parameters for highest precision and weighted avg f-1 score.
     
-    With this in mind we decided to start with a baseline model using 
-    Logistic Regression. With this model we were able to get a precision 
-    score of .61. This isn't a terrible score but because of the class imbalance 
-    we got a low F1 score (.03). As a result we decided to try and fix this 
-    imbalance using SMOTE, this did help with the F! score  (.33), but drastically 
-    reduced our precision rate (.23). 
-    
-    With this in mind we decided to move forward with tuning for precision, as we 
-    wanted to be certain that the stated amount would come through and an upper bound on 
-    the budget would only be a possitive thing. 
-    
-    Next we decided to try a Decission tree model, this resulted in a much better 
-    precission rate (.61), but the problem of a low F! score (.31) presisted. We 
-    wanted to better tune our model for precision so we decided to use smote again, 
-    but the same problem aross of lowering the precession score to raise the F!.
 
 
 
