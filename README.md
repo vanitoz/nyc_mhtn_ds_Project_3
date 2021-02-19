@@ -76,7 +76,9 @@ Using Scikit-learn and IMBlearn packages 6 classification models were created :
 
 ## Results
 
-![](images/Features_Importance.png=200)
+<img src="images/Features_Importance.png" alt="drawing" width="200"/>
+
+![](images/Features_Importance.png)
     
     After this was done we moved on to trying out different models with 
     the synthesized data. In. order to get a minimum for how much money 
