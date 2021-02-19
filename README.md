@@ -23,15 +23,6 @@ To answer this question we first needed to understand when and why a resident wo
 comply with a blight violation. This is the task, understanding the factors that play 
 into that, be they categorical or numerical.
 
-## Repository Structure
-
-    ├── README.md                    # The top-level README for reviewers of this project",
-    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal",
-    ├── modules                      # py files with functions for ingeniring and modeling",
-    ├── images                       # Both sourced externally and generated from Code",       
-    ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
-    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
-    
 ## Approach
 
 General Approach for this problem was based on Cross Industry Standard Process for Data Mining (CRISP-DM)
@@ -49,23 +40,38 @@ Which includes all following pmpotrtant steps:
 ![Blight](images/479px-CRISP-DM_Process_Diagram.png)
 
 ## Methodology
-1. Merge the data along usefull columns and synthesize a more useable dataset
-2. Perform EDA with statistical analysis to determine statistically significant features as well as dropping nan values and useless features.
-3. Test baseline model and tune to Precision
-4. Test different models with different hyper perameters and use cross validation
-5. Implement the different models to preform on the data set and categorize the values
+
+1. Data cleaning and preparation. Narrow down datasets to include important features.
+2. Merging data sets along usefull columns and synthesize a more useable dataset with features.
+3. Visualization variables based on different categories.
+4. Identify Apropriate Evaluation metrics for model.
+5. Generate classification models and evaluate results.
+8. Generalize final model. Perform tunning. 
+
+## Analysis
+
+For this project we started with very large data sets, so the first step was stripping down what we thought would be usefull 
+and combining it all into one dataset. This is primarilly what the ingeniring notebook was used for. We also used this notebook 
+to do some feature engineering with the crime_count. Target variable was define as compliance and non-compliance forthe blight ticket.
+Following visualisations help us understand more data.
+
+![](images/Condition_compliance.png)
 
 
+## Modeling
 
+Using Scikit-learn and IMBlearn packages 6 classification models were created :
+- Logerithmic Regression. 
+- Logerithmic Regression with SMOTE.
+- Decession Tree.
+- Decession Tree with SMOTE.
+- Random Forest.
+- Decission Tree with GridSearchCV.
+- AdaBoost and Gradient Boosting with Weak Learners.
 
 ## Results
 
-    For this project we started with very large data sets, so the 
-    first step was stripping down what we thought would be usefull 
-    and combining it all into one dataset. This is primarilly what 
-    the ingeniring notebook was used for. We also used this notebook 
-    to do some feature engineering with the crime_count. 
-
+    
     After this was done we moved on to trying out different models with 
     the synthesized data. In. order to get a minimum for how much money 
     we can expect for the budgest we decided to go with precision. This 
@@ -88,15 +94,7 @@ Which includes all following pmpotrtant steps:
     wanted to better tune our model for precision so we decided to use smote again, 
     but the same problem aross of lowering the precession score to raise the F!.
 
-## Modeling
-Using Scikit-learn and IMBlearn packages 7 classification models were crated.
-- Logerithmic Regression 
-- Logerithmic Regression with SMOTE
-- Decession Tree 
-- Decession Tree with SMOTE
-- Random Forest
-- Decission Tree with GridSearchCV
-- AdaBoost Gradient Boosting and Weak Learners
+
 
 It was determined that the Random Forest model perfromed the best and was utilized for the final implementation. 
 
@@ -109,7 +107,15 @@ The synthesized data was analyzed and modeled. Some of the significant factors i
 -Better synthesize the data to account for Nan and null values
 -Apply a multivariable classification to include people who didn't pay on time but still paid.
 
+## Repository Structure
 
+    ├── README.md                    # The top-level README for reviewers of this project",
+    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal",
+    ├── modules                      # py files with functions for ingeniring and modeling",
+    ├── images                       # Both sourced externally and generated from Code",       
+    ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
+    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
+    
     
 **Authors** <br>
 [Ivan Vanko](https://github.com/vanitoz)<br>
