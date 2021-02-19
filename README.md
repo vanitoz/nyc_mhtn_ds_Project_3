@@ -23,15 +23,8 @@ To answer this question we first needed to understand when and why a resident wo
 comply with a blight violation. This is the task, understanding the factors that play 
 into that, be they categorical or numerical.
 
-## Repository Structure
+Data for this project was uploaded from City of Detroit Open Data Portal - https://data.detroitmi.gov/datasets/blight-violations
 
-    ├── README.md                    # The top-level README for reviewers of this project",
-    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal",
-    ├── modules                      # py files with functions for ingeniring and modeling",
-    ├── images                       # Both sourced externally and generated from Code",       
-    ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
-    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
-    
 ## Approach
 
 General Approach for this problem was based on Cross Industry Standard Process for Data Mining (CRISP-DM)
@@ -46,58 +39,59 @@ Which includes all following pmpotrtant steps:
 7. Present your solution. 
 8. Launch, monitor, and maintain your system.
 
-
+![Blight](images/479px-CRISP-DM_Process_Diagram.png)
 
 ## Methodology
-1. Merge the data along usefull columns and synthesize a more useable dataset
-2. Perform EDA with statistical analysis to determine statistically significant features as well as dropping nan values and useless features.
-3. Test baseline model and tune to Precision
-4. Test different models with different hyper perameters and use cross validation
-5. Implement the different models to preform on the data set and categorize the values
 
-![Blight](images/CRISP-DM_Process_Diagram.png)
+1. Data cleaning and preparation. Narrow down datasets to include important features.
+2. Merging data sets along usefull columns and synthesize a more useable dataset with features.
+3. Visualization variables based on different categories.
+4. Identify Apropriate Evaluation metrics for model.
+5. Generate classification models and evaluate results.
+8. Generalize final model. Perform tunning. 
 
+## Analysis
 
+For this project we started with very large data sets, so the first step was stripping down what we thought would be usefull 
+and combining it all into one dataset. This is primarilly what the ingeniring notebook was used for. We also used this notebook 
+to do some feature engineering with the crime_count. Target variable was define as compliance and non-compliance forthe blight ticket.
+Following visualisations help us understand more data.
+
+![](images/Condition_compliance.png)
+
+As we can see based on some criterias from conditions of the building we can make  assumptions about target variable. In this case building with sugested demolition most likely will get to non-compliance class. Same we can say about building with condition - "poor"
+
+![](images/Fire_Compliance.png)
+
+Chart above proof that all buildings that had fire at site associated with non-complience tickets.
+
+## Modeling
+
+Using Scikit-learn and IMBlearn packages 6 classification models were created :
+- Logistic Regression. 
+- Logistic Regression with SMOTE.
+- Decession Tree.
+- Decession Tree with SMOTE.
+- Random Forest.
+- Decission Tree with GridSearchCV.
+- AdaBoost and Gradient Boosting with Weak Learners.
 
 ## Results
 
-    For this project we started with very large data sets, so the 
-    first step was stripping down what we thought would be usefull 
-    and combining it all into one dataset. This is primarilly what 
-    the ingeniring notebook was used for. We also used this notebook 
-    to do some feature engineering with the crime_count. 
+Prcision and F1 Score was choosen as Metrics for Evaluation of model.
+Based on a buisness problem, Precision would allow us to be certain and correctly allocate revenue with flase negatives giving us an upper bound on the budget. 
+After evaluating Logistic Regression Model and Decsission Tree Vanilla models we were still getting low scores . 
+But Randome Fores showed prety high results with Pressision = 89% and weighted avg f1-score = 93%
+Following graph shows Feature Importance generated with Random Forest Model.
 
-    After this was done we moved on to trying out different models with 
-    the synthesized data. In. order to get a minimum for how much money 
-    we can expect for the budgest we decided to go with precision. This 
-    would allow us to be certain and correctly allocate revenue with flase 
-    negatives giving us an upper bound on the budget. 
-    
-    With this in mind we decided to start with a baseline model using 
-    Logistic Regression. With this model we were able to get a precision 
-    score of .61. This isn't a terrible score but because of the class imbalance 
-    we got a low F1 score (.03). As a result we decided to try and fix this 
-    imbalance using SMOTE, this did help with the F! score  (.33), but drastically 
-    reduced our precision rate (.23). 
-    
-    With this in mind we decided to move forward with tuning for precision, as we 
-    wanted to be certain that the stated amount would come through and an upper bound on 
-    the budget would only be a possitive thing. 
-    
-    Next we decided to try a Decission tree model, this resulted in a much better 
-    precission rate (.61), but the problem of a low F! score (.31) presisted. We 
-    wanted to better tune our model for precision so we decided to use smote again, 
-    but the same problem aross of lowering the precession score to raise the F!.
+<img src="images/Features_Importance.png" alt="drawing" width="800" hight="900"/>
 
-## Modeling
-Using Scikit-learn and IMBlearn packages 7 classification models were crated.
-- Logerithmic Regression 
-- Logerithmic Regression with SMOTE
-- Decession Tree 
-- Decession Tree with SMOTE
-- Random Forest
-- Decission Tree with GridSearchCV
-- AdaBoost Gradient Boosting and Weak Learners
+As we can tell 'judgment amount', 'crime_count' and 'desposition' end up to be most importent features.
+The next step was to try models based on Boosting Algorithms. Ada Boost didn't show beyter results but Gradient Boostin Clasifier gave the best scores. 
+After perfoming Grid Search we were able to get best parameters for highest precision and weighted avg f-1 score.
+
+<img src="images/Results.png" alt="drawing" width="600" hight="500"/>
+
 
 It was determined that the Random Forest model perfromed the best and was utilized for the final implementation. 
 
@@ -110,7 +104,15 @@ The synthesized data was analyzed and modeled. Some of the significant factors i
 -Better synthesize the data to account for Nan and null values
 -Apply a multivariable classification to include people who didn't pay on time but still paid.
 
+## Repository Structure
 
+    ├── README.md                    # The top-level README for reviewers of this project",
+    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal",
+    ├── modules                      # py files with functions for ingeniring and modeling",
+    ├── images                       # Both sourced externally and generated from Code",       
+    ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
+    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
+    
     
 **Authors** <br>
 [Ivan Vanko](https://github.com/vanitoz)<br>
