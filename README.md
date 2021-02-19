@@ -87,8 +87,9 @@ Following graph shows Feature Importance generated with Random Forest Model.
 As we can tell 'judgment amount', 'crime_count' and 'desposition' end up to be most importent features.
 The next step was to try models based on Boosting Algorithms. Ada Boost didn't show beyter results but Gradient Boostin Clasifier gave the best scores. 
 After perfoming Grid Search we were able to get best parameters for highest precision and weighted avg f-1 score.
-    
-![](images/Results.png)
+
+<img src="images/Results.png" alt="drawing" width="600" hight="500"/>
+
 
 It was determined that the Random Forest model perfromed the best and was utilized for the final implementation. 
 
