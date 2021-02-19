@@ -22,10 +22,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import plot_confusion_matrix, recall_score, precision_score, classification_report
 
 
-from ingeniring_utils import * # import all existing functions from file cleaning.py
-from modeling_utils import *
-
-
 
 pd.set_option('display.max_columns', 360)
 
