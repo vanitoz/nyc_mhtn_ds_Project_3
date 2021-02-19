@@ -70,10 +70,10 @@ Chart above proof that all buildings that had fire at site associated with non-c
 Using Scikit-learn and IMBlearn packages 6 classification models were created :
 - Logistic Regression. 
 - Logistic Regression with SMOTE.
-- Decession Tree.
-- Decession Tree with SMOTE.
+- Decision Tree.
+- Decision Tree with SMOTE.
 - Random Forest.
-- Decission Tree with GridSearchCV.
+- Decision Tree with GridSearchCV.
 - AdaBoost and Gradient Boosting with Weak Learners.
 
 ## Results
@@ -100,9 +100,8 @@ The synthesized data was analyzed and modeled. Some of the significant factors i
 
 
 ## Future Work
--Tune the Model to better predict on both Recall and Precision
--Better synthesize the data to account for Nan and null values
--Apply a multivariable classification to include people who didn't pay on time but still paid.
+Expand the Model to Predict Multi-class Target (Include people who didn't pay on time but still paid.)
+Bring More Data into Model from Outside Resources for Feature Engineering. 
 
 ## Repository Structure
 
