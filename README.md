@@ -76,7 +76,7 @@ Using Scikit-learn and IMBlearn packages 6 classification models were created :
 
 ## Results
 
-<img src="images/Features_Importance.png" alt="drawing" width="500" hight="600"/>
+<img src="images/Features_Importance.png" alt="drawing" width="750" hight="900"/>
 
     
     After this was done we moved on to trying out different models with 
