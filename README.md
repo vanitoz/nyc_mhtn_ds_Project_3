@@ -23,6 +23,8 @@ To answer this question we first needed to understand when and why a resident wo
 comply with a blight violation. This is the task, understanding the factors that play 
 into that, be they categorical or numerical.
 
+Data for this project was uploaded from City of Detroit Open Data Portal - https://data.detroitmi.gov/datasets/blight-violations
+
 ## Approach
 
 General Approach for this problem was based on Cross Industry Standard Process for Data Mining (CRISP-DM)
