@@ -66,8 +66,8 @@ Chart above proof that all buildings that had fire at site associated with non-c
 ## Modeling
 
 Using Scikit-learn and IMBlearn packages 6 classification models were created :
-- Logerithmic Regression. 
-- Logerithmic Regression with SMOTE.
+- Logistic Regression. 
+- Logistic Regression with SMOTE.
 - Decession Tree.
 - Decession Tree with SMOTE.
 - Random Forest.
@@ -76,14 +76,17 @@ Using Scikit-learn and IMBlearn packages 6 classification models were created :
 
 ## Results
 
+Prcision and F1 Score was choosen as Metrics for Evaluation of model.
+Based on a buisness problem, Precision would allow us to be certain and correctly allocate revenue with flase negatives giving us an upper bound on the budget. 
+After evaluating Logistic Regression Model and Decsission Tree Vanilla models we were still getting low scores . 
+But Randome Fores showed prety high results with Pressision = 89% and weighted avg f1-score = 93%
+Following graph shows Feature Importance generated with Random Forest Model.
+
 <img src="images/Features_Importance.png" alt="drawing" width="800" hight="900"/>
 
-    
-    After this was done we moved on to trying out different models with 
-    the synthesized data. In. order to get a minimum for how much money 
-    we can expect for the budgest we decided to go with precision. This 
-    would allow us to be certain and correctly allocate revenue with flase 
-    negatives giving us an upper bound on the budget. 
+As we can tell 'judgment amount', 'crime_count' and 'desposition' end up to be most importent features.
+
+   
     
     With this in mind we decided to start with a baseline model using 
     Logistic Regression. With this model we were able to get a precision 
