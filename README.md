@@ -57,6 +57,11 @@ Following visualisations help us understand more data.
 
 ![](images/Condition_compliance.png)
 
+As we can see based on some criterias from conditions of the building we can make some assumptions about target variable. In this case building with sugested demolition most likely will get to non-compliance class.
+
+![](images/Fire_Compliance.png)
+
+Chart above proof that all buildings that had fire at site belongs associated with non-complience.
 
 ## Modeling
 
