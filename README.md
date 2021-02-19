@@ -100,17 +100,18 @@ The synthesized data was analyzed and modeled. Some of the significant factors i
 
 
 ## Future Work
-Expand the Model to Predict Multi-class Target (Include people who didn't pay on time but still paid.)
+Expand the Model to Predict Multi - class Target (Include people who didn't pay on time but still paid)
 Bring More Data into Model from Outside Resources for Feature Engineering. 
+Try different estimators for improving evaluation metrics.
 
 ## Repository Structure
 
-    ├── README.md                    # The top-level README for reviewers of this project",
-    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal",
-    ├── modules                      # py files with functions for ingeniring and modeling",
-    ├── images                       # Both sourced externally and generated from Code",       
-    ├── modeling.ipynb               # Notebook that gpes pver out modling process",                                        
-    └── features_ingeniring.ipynb    # Notebook Used for feature engineering before Modeling",
+    ├── README.md                    # The top-level README for reviewers of this project"
+    ├── data                         # Synergized Data obtained from University of Michigan and Detroit Open Data Portal"
+    ├── modules                      # py files with functions for ingeniring and modeling"
+    ├── images                       # Both sourced externally and generated from Code"       
+    ├── modeling.ipynb               # Notebook that gpes pver out modling process"                                        
+    └── features_engineering.ipynb    # Notebook Used for feature engineering before Modeling"
     
     
 **Authors** <br>
