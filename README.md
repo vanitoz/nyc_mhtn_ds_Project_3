@@ -88,8 +88,7 @@ As we can tell 'judgment amount', 'crime_count' and 'desposition' end up to be m
 The next step was to try models based on Boosting Algorithms. Ada Boost didn't show beyter results but Gradient Boostin Clasifier gave the best scores. 
 After perfoming Grid Search we were able to get best parameters for highest precision and weighted avg f-1 score.
     
-
-
+![](images/Results.png)
 
 It was determined that the Random Forest model perfromed the best and was utilized for the final implementation. 
 
